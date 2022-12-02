@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+
+    <style>
+        *{
+            background: #bbe4eba5;
+            /* background: linear-gradient(#e7f9fd, #cdd3d4 50%); */
+        }
+
+        /* html{
+            background: linear-gradient(#e7f9fd, #cdd3d4 50%);
+        } */
+
+        main{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1{
+            margin: 25px;
+            font-size: 50px;
+            font-weight: 700;
+        }
+
+        span#value{
+            font-size: 100px;
+            /* font-weight: 600; */
+        }
+
+        .btn-container{
+            margin-top: 25px;
+        }
+
+        .btn{
+            margin: 5px;
+            padding: 3px 7px;
+            text-transform: uppercase;
+            font-size: 17px;
+            font-weight: 100;
+            letter-spacing: 2px;
+            border-radius: 7px;
+        }
+
+        /* .btn:hover{
+            padding: 4px 8px;
+            color: #fff;
+            background: #000;
+            border: 1.3px solid #000 !important; 
+            transition: .8s;
+        } */
+
+        .decrease:hover{
+            background: #ff000020;
+            border: 2px solid #ff0000d0;
+        }
+
+        .increase:hover{
+            background: #00800030;
+            border: 2px solid #008000;
+        }
+
+        .reset:hover{
+            background: #ffffff30;
+            border: 2px solid #000;
+        }
+    </style>
+
+</head>
+<body>
+
+    <main>
+        <div class="block">
+            <div class="container">
+                <h1>Counter</h1>
+            </div>
+            <span id="value">0</span>
+            <div class="btn-container">
+                <button class="btn decrease">Decrease</button>
+                <button class="btn reset">Reset</button>
+                <button class="btn increase">Increase</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script>
+        // set initial count
+        let count= 0;
+
+        // select value and buttons
+        const value= document.querySelector("#value");
+        const btns= document.querySelectorAll(".btn");
+
+        btns.forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+                const styles= e.currentTarget.classList;
+                if (styles.contains('decrease')) {
+                    count--;
+                    // console.log(count);
+                } else if (styles.contains('increase')) {
+                    count++;
+                    // console.log(count);
+                } else {
+                    count = 0;
+                }
+
+                if (count>0) {
+                    value.style.color= "green"
+                }
+
+                if (count<0) {
+                    value.style.color= "red"
+                }
+
+                if (count===0) {
+                    value.style.color= "#000"
+                }
+                
+                value.textContent = count;
+                console.log(count);
+                
+            });           
+        });
+    </script>
+    
+</body>
+</html> 

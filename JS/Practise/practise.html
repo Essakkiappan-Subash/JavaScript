@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building our first JavaScript application</title>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+
+    <div class="select">
+
+      <img src="https://www.kalkus.dev/wp-content/uploads/2020/04/tuscany-3840x2160-italy-europe-hills-green-field-4k-16282-scaled.jpg" onmouseover="mouseover()" onmouseout="mouseout()" id="imAgE" width="500">
+      <hr>
+
+      <p class="para">Paragraph 1</p>
+      <p>Paragraph 2</p>
+      <div class="para">Paragraph 3</div>
+      <a href="#">Paragraph 4</a>
+      <p>Paragraph 5</p>
+      <a class="para" href="#">Paragraph 6</a>
+      <p class="para">Paragraph 7</p>
+      <p>Paragraph 8</p> <br>
+
+      <button onclick="btnP()" style="margin: 0 0px 0 15px;">Click for P</button>
+      <button onclick="btnC()" style="margin: 0 0px 0 15px;">Click for Class</button>
+
+      <p id="msg" style="visibility: hidden; margin: 2px 0 8px;">Please chose any one option form this select box.</p>
+      
+      <script>
+        function btnP() {
+          var paraGraph= document.getElementsByTagName("p");
+
+          // paraGraph[0].style.fontStyle= "italic";
+          // paraGraph[1].style.color= "#f00";
+          // paraGraph[2].style.display= "none";
+          // paraGraph[3].style.fontWeight= "700";
+          // paraGraph[4].style.padding= "50px";
+
+          for (let i = 0; i < paraGraph.length; i++) {
+            paraGraph[i].style.display= "none";
+            
+          }
+          
+        }
+        
+        function btnC() {
+          var claSS= document.getElementsByClassName("para");
+
+          claSS[0].style.color= "#f00";
+          claSS[1].style.fontStyle= "italic";
+          claSS[2].style.fontWeight= "900";
+          claSS[3].style.color= "#ff0";
+        }
+
+        function mouseover() {
+          document.getElementById("imAgE").src= "https://www.pbctoday.co.uk/news/wp-content/uploads/2018/10/Brownfield-vs-Greenfield-construction-%E2%80%93-which-is-better.jpeg";
+        }
+        function mouseout() {
+          document.getElementById("imAgE").src= "https://kalkus.dev/wp-content/uploads/2020/04/tuscany-3840x2160-italy-europe-hills-green-field-4k-16282-scaled.jpg";
+        }
+      </script>
+
+    </div>
+
+  </body>
+</html>
